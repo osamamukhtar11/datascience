@@ -60,10 +60,10 @@ def lineplot(x_data, y_data, x_label="X", y_label="Y", title="Line plot", saveOr
     else:
         plt.show()
 
-def histogram(data, n_bins, cumulative=False, x_label = "X", y_label = "Y", title = "Histogram", saveOrShow=False, filename='histogram'):
+def histogram(data, bins, cumulative=False, x_label = "Value", y_label = "Frequency", title = "Histogram", saveOrShow=False, filename='histogram'):
     '''
     :param data: variable whose frequency in different bins is to be represented in the histogram
-    :param n_bins: no. of bins
+    :param bins: no. of bins
     :param cumulative: If True, then a histogram is computed where each bin gives the counts in that bin plus all bins for smaller values. The last bin gives the total number of datapoints.
     :param x_label: label for x-axis
     :param y_label: label for y-axis
@@ -73,7 +73,7 @@ def histogram(data, n_bins, cumulative=False, x_label = "X", y_label = "Y", titl
     :return:
     '''
     _, ax = plt.subplots()
-    ax.hist(data, bins = n_bins, cumulative = cumulative, color = '#539caf')
+    ax.hist(data, bins = bins, cumulative = cumulative, color = '#539caf')
     ax.set_ylabel(y_label)
     ax.set_xlabel(x_label)
     ax.set_title(title)
@@ -82,4 +82,42 @@ def histogram(data, n_bins, cumulative=False, x_label = "X", y_label = "Y", titl
     else:
         plt.show()
 
-# code inspired from https://towardsdatascience.com/5-quick-and-easy-data-visualizations-in-python-with-code-a2284bae952f
+def overlaid_histogram(data1, data2, bins = 0, data1_name="", data1_color="#539caf", data2_name="", data2_color="#7663b0", x_label="Value", y_label="Frequency", title="Overlaid Histogram", saveOrShow=False, filename='overlaid_histogram'):
+    # Overlay 2 histograms to compare them
+    # Set the bounds for the bins so that the two distributions are fairly compared
+    '''
+    :param data1: variable for histogram 1
+    :param data2: variable for histogram 2
+    :param bins: number of bins
+    :param data1_name: Label for variable 1
+    :param data1_color: Colour for histogram 1
+    :param data2_name: Label for variable 2
+    :param data2_color: Colour for histogram 2
+    :param x_label: Label on x-axis
+    :param y_label: Label on y-axis
+    :param title: title for the diagram
+    :param saveOrShow: if true, save the plot, else show the plot
+    :param filename: if saveOrShow is True, plot is saved as a PNG file with the filename. Default value is 'overlaid_histogram.png'
+    :return:
+    '''
+    max_nbins = 10
+    data_range = [min(min(data1), min(data2)), max(max(data1), max(data2))]
+    binwidth = (data_range[1] - data_range[0]) / max_nbins
+
+    if bins == 0:
+        bins = np.arange(data_range[0], data_range[1] + binwidth, binwidth)
+    else:
+        bins = bins
+
+    # Create the plot
+    _, ax = plt.subplots()
+    ax.hist(data1, bins = bins, color = data1_color, alpha = 1, label = data1_name)
+    ax.hist(data2, bins = bins, color = data2_color, alpha = 0.75, label = data2_name)
+    ax.set_ylabel(y_label)
+    ax.set_xlabel(x_label)
+    ax.set_title(title)
+    ax.legend(loc = 'best')
+    if saveOrShow:
+        plt.savefig(filename+'.png')
+    else:
+        plt.show()
