@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
 
 def scatterplot(x_data, y_data, x_label="X", y_label="Y", title="Scatter plot", color = "r", yscale_log=False, saveOrShow=False, filename='scatter'):
     '''
@@ -213,5 +214,27 @@ def stackedbarplot(x_data, y_data_list, colors, y_data_names, x_label="", y_labe
         plt.savefig(filename+'.png')
     else:
         plt.show()
+
+def scatterplot_3d(x, y, z, labels):
+    '''
+    plots a 3d plot using 3d input samples and labels
+    :param x: dimension 1
+    :param y: dimension 2
+    :param z: dimension 3
+    :param labels: labels for each sample (x,y,z)
+    :return:
+    '''
+    ax = plt.figure(figsize=(16, 10)).gca(projection='3d')
+    ax.scatter(
+        xs=x,
+        ys=y,
+        zs=z,
+        c=labels,
+        cmap='tab10'
+    )
+    ax.set_xlabel('d-1')
+    ax.set_ylabel('d-2')
+    ax.set_zlabel('d-3')
+    plt.savefig('scatterplot-3d.png')
 
 # code inspired from https://towardsdatascience.com/5-quick-and-easy-data-visualizations-in-python-with-code-a2284bae952f
