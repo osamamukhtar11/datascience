@@ -12,7 +12,7 @@ def scatterplot(x_data, y_data, x_label="X", y_label="Y", title="Scatter plot", 
     :param color: color for the scatter points
     :param yscale_log: use log for values on y-axis
     :param saveOrShow: if true, save the plot, else show the plot
-    :param filename: if saveOrShow is True, plot is saved as a PNG file with the filename. Default value is 'scatter.png'
+    :param filename: if saveOrShow is True, plot is saved as a JPG file with the filename. Default value is 'scatter.jpg'
     :return:
     '''
     # Create the plot object
@@ -30,7 +30,7 @@ def scatterplot(x_data, y_data, x_label="X", y_label="Y", title="Scatter plot", 
     ax.set_xlabel(x_label)
     ax.set_ylabel(y_label)
     if saveOrShow:
-        plt.savefig(filename+'.png')
+        plt.savefig(filename+'.jpg')
     else:
         plt.show()
 
@@ -42,7 +42,7 @@ def lineplot(x_data, y_data, x_label="X", y_label="Y", title="Line plot", saveOr
     :param y_label: label for y-axis
     :param title: title for the plot
     :param saveOrShow: if true, save the plot, else show the plot
-    :param filename: if saveOrShow is True, plot is saved as a PNG file with the filename. Default value is 'line.png'
+    :param filename: if saveOrShow is True, plot is saved as a JPG file with the filename. Default value is 'line.jpg'
     :return:
     '''
     # Create the plot object
@@ -57,7 +57,7 @@ def lineplot(x_data, y_data, x_label="X", y_label="Y", title="Line plot", saveOr
     ax.set_xlabel(x_label)
     ax.set_ylabel(y_label)
     if saveOrShow:
-        plt.savefig(filename+'.png')
+        plt.savefig(filename+'.jpg')
     else:
         plt.show()
 
@@ -70,7 +70,7 @@ def histogram(data, bins, cumulative=False, x_label = "Value", y_label = "Freque
     :param y_label: label for y-axis
     :param title: title for the plot
     :param saveOrShow: if true, save the plot, else show the plot
-    :param filename: if saveOrShow is True, plot is saved as a PNG file with the filename. Default value is 'histogram.png'
+    :param filename: if saveOrShow is True, plot is saved as a JPG file with the filename. Default value is 'histogram.jpg'
     :return:
     '''
     _, ax = plt.subplots()
@@ -79,7 +79,7 @@ def histogram(data, bins, cumulative=False, x_label = "Value", y_label = "Freque
     ax.set_xlabel(x_label)
     ax.set_title(title)
     if saveOrShow:
-        plt.savefig(filename+'.png')
+        plt.savefig(filename+'.jpg')
     else:
         plt.show()
 
@@ -98,7 +98,7 @@ def overlaid_histogram(data1, data2, bins = 0, data1_name="X1", data1_color="#53
     :param y_label: Label on y-axis
     :param title: title for the diagram
     :param saveOrShow: if true, save the plot, else show the plot
-    :param filename: if saveOrShow is True, plot is saved as a PNG file with the filename. Default value is 'overlaid_histogram.png'
+    :param filename: if saveOrShow is True, plot is saved as a JPG file with the filename. Default value is 'overlaid_histogram.jpg'
     :return:
     '''
     max_nbins = 10
@@ -119,7 +119,7 @@ def overlaid_histogram(data1, data2, bins = 0, data1_name="X1", data1_color="#53
     ax.set_title(title)
     ax.legend(loc = 'best')
     if saveOrShow:
-        plt.savefig(filename+'.png')
+        plt.savefig(filename+'.jpg')
     else:
         plt.show()
 
@@ -132,7 +132,7 @@ def barplot(x_data, y_data, error_data, x_label="", y_label="", title="Barplot",
     :param y_label: label for y-axis
     :param title: title for the diagram
     :param saveOrShow: if true, save the plot, else show the plot
-    :param filename: if saveOrShow is True, plot is saved as a PNG file with the filename. Default value is 'overlaid_histogram.png'
+    :param filename: if saveOrShow is True, plot is saved as a JPG file with the filename. Default value is 'overlaid_histogram.jpg'
     :return:
     '''
     _, ax = plt.subplots()
@@ -145,7 +145,7 @@ def barplot(x_data, y_data, error_data, x_label="", y_label="", title="Barplot",
     ax.set_xlabel(x_label)
     ax.set_title(title)
     if saveOrShow:
-        plt.savefig(filename+'.png')
+        plt.savefig(filename+'.jpg')
     else:
         plt.show()
 
@@ -159,7 +159,7 @@ def groupedbarplot(x_data, y_data_list, colors, y_data_names, x_label="", y_labe
     :param y_label: label on y-axis
     :param title: title of the diagram
     :param saveOrShow: if true, save the plot, else show the plot
-    :param filename: if saveOrShow is True, plot is saved as a PNG file with the filename. Default value is 'overlaid_histogram.png'
+    :param filename: if saveOrShow is True, plot is saved as a JPG file with the filename. Default value is 'overlaid_histogram.jpg'
     :return:
     '''
     _, ax = plt.subplots()
@@ -180,7 +180,7 @@ def groupedbarplot(x_data, y_data_list, colors, y_data_names, x_label="", y_labe
     ax.set_title(title)
     ax.legend(loc = 'upper right')
     if saveOrShow:
-        plt.savefig(filename+'.png')
+        plt.savefig(filename+'.jpg')
     else:
         plt.show()
 
@@ -194,7 +194,7 @@ def stackedbarplot(x_data, y_data_list, colors, y_data_names, x_label="", y_labe
     :param y_label: label on y-axis
     :param title: title of the diagram
     :param saveOrShow: if true, save the plot, else show the plot
-    :param filename: if saveOrShow is True, plot is saved as a PNG file with the filename. Default value is 'overlaid_histogram.png'
+    :param filename: if saveOrShow is True, plot is saved as a JPG file with the filename. Default value is 'overlaid_histogram.jpg'
     :return:
     '''
     _, ax = plt.subplots()
@@ -211,7 +211,7 @@ def stackedbarplot(x_data, y_data_list, colors, y_data_names, x_label="", y_labe
     ax.set_title(title)
     ax.legend(loc = 'upper right')
     if saveOrShow:
-        plt.savefig(filename+'.png')
+        plt.savefig(filename+'.jpg')
     else:
         plt.show()
 
@@ -235,6 +235,6 @@ def scatterplot_3d(x, y, z, labels):
     ax.set_xlabel('d-1')
     ax.set_ylabel('d-2')
     ax.set_zlabel('d-3')
-    plt.savefig('scatterplot-3d.png')
+    plt.savefig('scatterplot-3d.jpg')
 
 # code inspired from https://towardsdatascience.com/5-quick-and-easy-data-visualizations-in-python-with-code-a2284bae952f
