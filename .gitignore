@@ -1,5 +1,6 @@
 # ignore images
 *.png
 *.jpg
+*.gif
 
 .DS_Store
